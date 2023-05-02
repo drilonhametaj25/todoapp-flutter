@@ -11,7 +11,8 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: _buildAppBar(),
       body: Container(
-        child: Text('This is home screen'),
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: searchBox(),
       )
     );
   }
@@ -37,6 +38,37 @@ class Home extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class searchBox extends StatelessWidget {
+  const searchBox({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20)
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(0),
+              prefixIcon: Icon(Icons.search, color: tdBlack, size: 20),
+              prefixIconConstraints: BoxConstraints(maxHeight: 20, minWidth: 25),
+              border: InputBorder.none,
+              hintText: 'Search..',
+              hintStyle: TextStyle(color: tdGrey)
+            ),
+          ),
+        )
+      ],
     );
   }
 }
